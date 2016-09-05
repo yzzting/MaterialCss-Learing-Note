@@ -31,6 +31,11 @@ gulp.task('server',function(){
   })
 })
 
+gulp.task('deploy', ['build'], function() {
+    return gulp.src('dist/**/*')
+        .pipe(ghPages());
+});
+
 gulp.task('build', ['stylesheet', 'views']);
 
 gulp.task('default', ['watch', 'build','server']);
