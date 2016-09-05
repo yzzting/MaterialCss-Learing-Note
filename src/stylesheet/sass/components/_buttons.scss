@@ -36,3 +36,13 @@
       color: $button-disabled-color !important;
     }
 }
+//icon 样式
+.btn,
+.btn-floating,
+.btn-flat,
+.btn-large {
+  i {
+    font-size: $button-font-size;
+    line-height: inherit
+  }
+}
