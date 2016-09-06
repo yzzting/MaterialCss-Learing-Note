@@ -1959,10 +1959,12 @@ th {
    ========================================================================== */
 /* Buttons
    ========================================================================== */
+/* . Cards
+   ========================================================================== */
 .z-depth-0 {
   box-shadow: none !important; }
 
-.z-depth-1, .btn, .btn-large, .btn-floating {
+.z-depth-1, .btn, .btn-large, .btn-floating, .card-panel, .card {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
 
 .z-depth-1-half, .btn:hover, .btn-large:hover, .btn-floating:hover {
@@ -2592,3 +2594,120 @@ th {
   line-height: 54px; }
   .btn-large i {
     font-size: 1.6rem; }
+
+/**
+ * cards
+ */
+.card-panel, .card {
+  transition: box-shadow 0.25s;
+  margin: 0.5rem 0 1rem;
+  border-radius: 2px;
+  background-color: #fff; }
+
+.card-panel {
+  padding: 20px; }
+
+.card {
+  position: relative; }
+  .card .card-title {
+    font-size: 24px;
+    font-weight: 300; }
+    .card .card-title.activator {
+      cursor: pointer; }
+  .card.large, .card.medium, .card.small {
+    position: relative; }
+    .card.large .card-image, .card.medium .card-image, .card.small .card-image {
+      max-height: 60%;
+      overflow: hidden; }
+    .card.large .card-image + .card-content, .card.medium .card-image + .card-content, .card.small .card-image + .card-content {
+      min-height: 40%; }
+    .card.large .card-content, .card.medium .card-content, .card.small .card-content {
+      max-height: 100%;
+      overflow: hidden; }
+    .card.large .card-action, .card.medium .card-action, .card.small .card-action {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0; }
+  .card.small {
+    height: 300px; }
+  .card.medium {
+    height: 400px; }
+  .card.large {
+    height: 500px; }
+  .card.horizontal {
+    display: flex; }
+    .card.horizontal.large .card-image, .card.horizontal.medium .card-image, .card.horizontal.small .card-image {
+      height: 100%;
+      max-height: 100%;
+      overflow: visible; }
+      .card.horizontal.large .card-image img, .card.horizontal.medium .card-image img, .card.horizontal.small .card-image img {
+        height: 100%; }
+    .card.horizontal .card-image {
+      max-width: 50%; }
+      .card.horizontal .card-image img {
+        max-width: 100%;
+        width: auto; }
+    .card.horizontal .card-stacked {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      position: relative; }
+      .card.horizontal .card-stacked .card-content {
+        flex-grow: 1; }
+  .card.sticky-action .card-action {
+    z-index: 2; }
+  .card.sticky-action .card-reveal {
+    z-index: 1;
+    padding-bottom: 64px; }
+  .card .card-image {
+    position: relative; }
+    .card .card-image img {
+      display: block;
+      border-radius: 2px 2px 0 0;
+      position: relative;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%; }
+    .card .card-image .card-title {
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 20px; }
+  .card .card-content {
+    padding: 20px;
+    border-radius: 0 0 2px 2px; }
+    .card .card-content p {
+      margin: 0;
+      color: inherit; }
+    .card .card-content .card-title {
+      line-height: 48px; }
+  .card .card-action {
+    position: relative;
+    background-color: inherit;
+    padding: 20px;
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 20px; }
+    .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+      color: #ffab40;
+      margin-right: 20px;
+      transition: color 0.3s ease;
+      text-transform: uppercase; }
+      .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
+        color: #ffd8a6; }
+    .card .card-action .card-reveal {
+      padding: 20px;
+      position: absolute;
+      background-color: #fff;
+      width: 100%;
+      overflow-y: auto;
+      top: 100%;
+      height: 100%;
+      z-index: 3;
+      display: none; }
+      .card .card-action .card-reveal .card-title {
+        cursor: pointer;
+        display: block; }
