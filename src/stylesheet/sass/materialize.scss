@@ -1,7 +1,14 @@
-//import normalize
+//import Normalize
 @import './components/normalize';
 
-//import variables
+//import Color
+@import './components/color';
+
+//import Variables
 @import './components/variables';
 
+//import Global
+@import './components/global';
+
 @import "./components/grid";
+@import './components/buttons';

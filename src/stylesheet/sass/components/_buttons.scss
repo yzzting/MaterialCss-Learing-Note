@@ -32,17 +32,149 @@
         pointer-events: none; //禁用鼠标事件
     }
     &:hover {
-      background-color: $button-disabled-background !important;
-      color: $button-disabled-color !important;
+        background-color: $button-disabled-background !important;
+        color: $button-disabled-color !important;
     }
 }
 //icon 样式
 .btn,
-.btn-floating,
 .btn-flat,
+.btn-floating,
 .btn-large {
-  i {
-    font-size: $button-font-size;
-    line-height: inherit
-  }
+    i {
+        font-size: $button-font-size;
+        line-height: inherit;
+    }
+}
+//按钮基本样式
+.btn {
+    color: $button-raised-color;
+    background-color: $button-raised-background;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 0.5px;
+    @extend .z-depth-1; //shadow
+    transition: 0.2s ease-out;
+    cursor: pointer;
+    &:hover {
+        background-color: $button-raised-background-hover;
+        @extend .z-depth-1-half;
+    }
+}
+//浮动按钮
+.btn-floating {
+    border: $button-border;
+    display: inline-block;
+    color: $button-floating-color;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: $button-floating-size;
+    height: $button-floating-size;
+    line-height: $button-floating-size;
+    padding: 0;
+    background-color: $button-floating-background;
+    border-radius: $button-floating-radius;
+    transition: 0.3s;
+    @extend .z-depth-1;
+    cursor: pointer;
+    vertical-align: middle;
+    i {
+        width: inherit;
+        display: inline-block;
+        text-align: center;
+        color: $button-floating-color;
+        font-size: $button-large-icon-font-size;
+        line-height: $button-floating-size;
+    }
+    &:hover {
+        background-color: $button-floating-background-hover;
+        @extend .z-depth-1-half;
+    }
+    &:before {
+        border-radius: 0;
+    }
+    &.btn-large {
+        width: $button-floating-large-size;
+        height: $button-floating-large-size;
+        i {
+            line-height: $button-floating-large-size;
+        }
+    }
+}
+//固定按钮样式
+.fixed-action-btn {
+    position: fixed;
+    right: 23px;
+    bottom: 23px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+    &.active {
+        ul {
+            visibility: visible; //文本可见
+        }
+    }
+    // 水平按钮
+    &.horizontal {
+        padding: 0 0 0 15px;
+        ul {
+            text-align: right;
+            right: 64px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 100%;
+            left: auto;
+            width: 500px;
+            /*width 100% only goes to width of button container */
+            li {
+                display: inline-block;
+                margin: 15px 15px 0 0;
+            }
+        }
+    }
+    //竖直按钮
+    ul {
+        left: 0;
+        right: 0;
+        text-align: center;
+        bottom: 64px;
+        margin: 0;
+        visibility: hidden; //文本隐藏
+        li {
+            margin-bottom: 15px;
+        }
+        a.btn-floating {
+            opacity: 0;
+        }
+    }
+}
+//扁平按钮样式
+.btn-flat {
+    box-shadow: none;
+    background-color: transparent;
+    color: $button-flat-color;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    &:active,
+    &:focus {
+        background-color: transparent;
+    }
+    &:hover {
+        background-color: rgba(0,0,0,.1);
+        box-shadow: none;
+    }
+    &.disabled {
+        color: $button-flat-disabled-color;
+        cursor: default;
+    }
+}
+//大号按钮样式
+.btn-large {
+    @extend .btn;
+    height: $button-large-height;
+    line-height: $button-large-height;
+    i {
+        font-size: $button-large-icon-font-size;
+    }
 }
