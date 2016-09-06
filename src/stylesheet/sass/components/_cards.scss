@@ -1,0 +1,164 @@
+/**
+ * cards
+ */
+//换种方式 减少重复
+%card-panel {
+    @extend .z-depth-1;
+    transition: box-shadow 0.25s;
+    margin: 0.5rem 0 1rem;
+    border-radius: 2px;
+    background-color: $card-background-color;
+}
+.card-panel {
+    padding: $card-padding;
+    @extend %card-panel;
+}
+.card {
+    @extend %card-panel;
+    position: relative;
+    @extend .z-depth-1;
+    .card-title {
+        font-size: 24px;
+        font-weight: 300;
+        &.activator {
+            cursor: pointer;
+        }
+    }
+    //卡片尺寸
+    &.large,
+    &.medium,
+    &.small {
+        position: relative;
+        .card-image {
+            max-height: 60%;
+            overflow: hidden;
+        }
+        .card-image + .card-content {
+            min-height: 40%;
+        }
+        .card-content {
+            max-height: 100%;
+            overflow: hidden;
+        }
+        .card-action {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+    &.small {
+        height: 300px;
+    }
+    &.medium {
+        height: 400px;
+    }
+    &.large {
+        height: 500px;
+    }
+    //水平卡片
+    &.horizontal {
+        display: flex;
+        &.large,
+        &.medium,
+        &.small {
+            .card-image {
+                height: 100%;
+                max-height: 100%;
+                overflow: visible;
+                img {
+                    height: 100%;
+                }
+            }
+        }
+        .card-image {
+            max-width: 50%;
+            img {
+                max-width: 100%;
+                width: auto;
+            }
+        }
+        .card-stacked {
+            display: flex;
+            flex-direction: column;
+            flex: 1; //貌似有点多余
+            position: relative;
+            .card-content {
+                flex-grow: 1; //不知道有什么意义
+            }
+        }
+    }
+    //可点击卡片样式
+    &.sticky-action {
+        .card-action {
+            z-index: 2;
+        }
+        .card-reveal {
+            z-index: 1;
+            padding-bottom: 64px;
+        }
+    }
+    .card-image {
+        position: relative;
+        img {
+            display: block;
+            border-radius: 2px 2px 0 0;
+            position: relative;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        .card-title {
+            color: $card-background-color;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: $card-padding;
+        }
+    }
+    .card-content {
+        padding: $card-padding;
+        border-radius: 0 0 2px 2px;
+        p {
+            margin: 0;
+            color: inherit;
+        }
+        .card-title {
+            line-height: 48px;
+        }
+    }
+    .card-action {
+        position: relative;
+        background-color: inherit;
+        padding: $card-padding;
+        border-top: 1px solid rgba(160,160,160,.2);
+        padding: $card-padding;
+        a:not(.btn):not(.btn-large):not(.btn-floating) {
+            color: $card-link-color;
+            margin-right: $card-padding;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            &:hover {
+                color: $card-link-color-light;
+            }
+        }
+        .card-reveal {
+            padding: $card-padding;
+            position: absolute;
+            background-color: $card-background-color;
+            width: 100%;
+            overflow-y: auto;
+            top: 100%;
+            height: 100%;
+            z-index: 3;
+            display: none;
+            .card-title {
+                cursor: pointer;
+                display: block;
+            }
+        }
+    }
+}
+//这一个卡片样式好啰嗦

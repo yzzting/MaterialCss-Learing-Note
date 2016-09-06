@@ -3,6 +3,7 @@ var gulp     = require('gulp');
 var sass     = require('gulp-sass');
 var pug      = require('gulp-pug');
 var connect  = require('gulp-connect');
+var ghPages = require('gulp-gh-pages');
 
 gulp.task('views', function () {
   gulp.src('./src/views/*.pug')

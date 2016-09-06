@@ -55,3 +55,12 @@ $button-floating-color: #fff !default;
 $button-floating-size: 37px !default;
 $button-floating-large-size: $button-floating-size * 1.5 !default;
 $button-floating-radius: 50% !default;
+
+
+/* . Cards
+   ========================================================================== */
+
+$card-padding: 20px !default;
+$card-background-color: #fff !default;
+$card-link-color: color("orange", "accent-2") !default;
+$card-link-color-light: lighten($card-link-color, 20%) !default;
